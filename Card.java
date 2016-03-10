@@ -5,29 +5,47 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Card
+public class Card implements Comparable <Card>
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Card
-     */
-    public Card()
+    private int id;
+    private int comparePriority;
+    public Card (int iD)
     {
-        // initialise instance variables
-        x = 0;
+        id=iD;
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
+    public int compareTo(Card other)
     {
-        // put your code here
-        return x + y;
+        
+        if (other.getId()>this.getId())
+        {
+            comparePriority=1;
+        }
+        if (other.getId()<this.getId())
+        {
+            comparePriority=-1;
+        }
+        if (other.getId()==this.getId())
+        {
+            comparePriority=0;
+        }
+        return comparePriority;
     }
+    public boolean equals(Card other)
+    {
+        if (getId()==other.getId())
+        {
+            return true;
+        }
+        else
+            return false;
+    }
+    public int getId()
+    {
+        return id;
+    }
+    public String toString()
+    {
+        return ("This card has a ID #: " + getId());
+    }
+    
 }
