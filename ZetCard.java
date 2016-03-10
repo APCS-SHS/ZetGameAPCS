@@ -1,4 +1,3 @@
-
 /**
  * Write a description of class ZetCard here.
  * 
@@ -8,12 +7,15 @@
 public class ZetCard extends Card
 {
     private int number, shape, fill, color;
+    private static int iD = 0;
     
     public ZetCard(int number, int shape, int fill, int color){
+        super(iD);
         this.number = number;
         this.shape = shape;
         this.fill = fill;
         this.color = color;
+        iD++;
     }
     
     public int getNumber(){
@@ -33,6 +35,6 @@ public class ZetCard extends Card
     }
     
     public String toString(){
-        return("This card is a ");
+        return("This card's ID is "+super.getId());
     }
 }
