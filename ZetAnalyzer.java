@@ -85,7 +85,29 @@ public class ZetAnalyzer
     }
     public static int[] findZet(ZetCard[] cards)
     {
+        int length = cards.length()-1;
+        for (int i =0; i <= length; i++)
+        {
+            for (int c =1; c <= length; c++)
+        {
+            for (int j =2; j <= length; j++)
+        {
+            if (isZet(card[i], card[j], card[c] == true))
+            {
+                ZetCard[] arrayZet = new int [3];
+                arrayZet[0] = card[i];
+                arrayZet[1] = card[j];
+                arrayZet[2] = card[c];
+                
+                
+            }
+            
+        }
         
     }
 
+   }
+  }
 }
+
+
