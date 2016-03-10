@@ -24,5 +24,90 @@
 
 public class ZetAnalyzer
 {
+    int a;
+    int b;
+    int c;
+    int isTrueN = 0, isTrueS = 0, isTrueF = 0, isTrueC = 0;
+    
+    
+    public static boolean isZet(ZetCard card1, ZetCard card2, ZetCard card3)
+    {
+        a = card1.getNumber();
+        b = card2.getNumber();
+        c = card3.getNumber();
+        
+        if ((a+b+c)%3 == 0) 
+        {
+            isTrueN = 1;
+            
+            
+            
+        }
+        a = card1.getShape;
+        b = card2.getShape;
+        c = card3.getShape;
+        if ((a+b+c)%3 == 0) 
+        {
+            isTrueS = 1;
+            
+            
+            
+        }
+        a = card1.getFill;
+        b = card2.getFill;
+        c = card3.getFill;
+        if ((a+b+c)%3 == 0) 
+        {
+            isTrueF = 1;
+            
+            
+            
+        }
+        a = card1.getColor;
+        b = card2.getColor;
+        c = card3.getColor;
+        if ((a+b+c)%3 == 0) 
+        {
+            isTrueC = 1;
+            
+            
+            
+        }
+        
+        if ((isTrueC == 1) && (isTrueF == 1) && (isTrueN == 1) && (isTrueS))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public static int[] findZet(ZetCard[] cards)
+    {
+        int length = cards.length()-1;
+        for (int i =0; i <= length; i++)
+        {
+            for (int c =1; c <= length; c++)
+        {
+            for (int j =2; j <= length; j++)
+        {
+            if (isZet(card[i], card[j], card[c] == true))
+            {
+                ZetCard[] arrayZet = new int [3];
+                arrayZet[0] = card[i];
+                arrayZet[1] = card[j];
+                arrayZet[2] = card[c];
+                
+                
+            }
+            
+        }
+        
+    }
 
+   }
+  }
 }
+
+
