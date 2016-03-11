@@ -7,27 +7,19 @@
  */
 public class TestDeck
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class TestDeck
-     */
-    public TestDeck()
+    public static void main (String[] args)
     {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
+    Deck deck1 = new Deck();
+    Card green1 = new Card(1);
+    Card red2 = new Card(2);
+    Card blue3 = new Card(3);
+    deck1.add(green1);
+    deck1.add(red2);
+    deck1.add(blue3);
+    System.out.println(deck1);
+    deck1.shuffle();
+    System.out.println(deck1);
+    deck1.sort();
+    System.out.println(deck1);
+}
 }
