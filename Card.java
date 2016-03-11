@@ -45,7 +45,7 @@ public class Card implements Comparable <Card>
     }
     public String toString()
     {
-        return ("This card has a ID #: " + getId());
+        return ("This card has ID#: " + getId());
     }
     
 }
