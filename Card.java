@@ -18,11 +18,11 @@ public class Card implements Comparable <Card>
         
         if (other.getId()>this.getId())
         {
-            comparePriority=1;
+            comparePriority=-1;
         }
         if (other.getId()<this.getId())
         {
-            comparePriority=-1;
+            comparePriority=1;
         }
         if (other.getId()==this.getId())
         {
