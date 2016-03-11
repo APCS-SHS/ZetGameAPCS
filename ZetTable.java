@@ -122,9 +122,9 @@ public class ZetTable
    */
   public void remove3Cards(int[] indices)
   {
-    cards[].remove(indices[0]);
-    cards[].remove(indices[1]);
-    cards[].remove(indices[2]);
+    cards.remove(indices[0]);
+    cards.remove(indices[1]);
+    cards.remove(indices[2]);
   }
 
   /**
