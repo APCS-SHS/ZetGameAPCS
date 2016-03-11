@@ -1,6 +1,8 @@
+**/doc
 *.class
+*.pkh
 *.ctxt
-package.bluej
+*.bluej
 .DS_Store
 
 # Mobile Tools for Java (J2ME)

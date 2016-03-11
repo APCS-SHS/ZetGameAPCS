@@ -16,18 +16,18 @@ public class TestZetDeck
     public TestZetDeck()
     {
         // initialise instance variables
-        x = 0;
+        
+        ZetDeck deck1=new ZetDeck();
+        int i = 0;
+        while (i<=2)
+
+        {
+            System.out.println(deck1.takeTop());
+            
+            i++;
+        }
+        
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
+    
 }

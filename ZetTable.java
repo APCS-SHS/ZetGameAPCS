@@ -41,15 +41,19 @@
 
 public class ZetTable
 {
-  private final int dfltOpenCards = 12;
-  ...
-
+  private final int dfltOpenCards = 12;//Default Open Cards
+  private ZetDeck deck;
+  private ZetCard[] cards[];
   /**
    *  Creates a new deck and opens dfltOpenCards cards.
    */
   public ZetTable()
   {
-    ...
+    deck=new ZetDeck();//Create new ZetDeck
+    deck.shuffle();
+    //cards[]={deck.takeTop(dfltOpenCards)};
+    //for i in cards[]
+    deck.takeTop(dfltOpenCards);//Open dfltOpenCards?
   }
 
   /**
@@ -58,7 +62,7 @@ public class ZetTable
    */
   public int cardsInDeck()
   {
-    ...
+    deck.getNumCards();//return Number of Remaining Cards?
   }
 
   /**
@@ -69,7 +73,7 @@ public class ZetTable
    */
   public ZetCard getOpenCard(int i)
   {
-    ...
+    
   }
 
   /**
@@ -93,7 +97,7 @@ public class ZetTable
    */
   public int[] findZet()
   {
-    ...
+    ZetAnalyzer.findZet();
   }
 
   /**
@@ -102,7 +106,14 @@ public class ZetTable
    */
   public boolean open3Cards()
   {
-    ...
+    if(cardsInDeck()>=3){
+        //deck.takeTop();
+        //deck.takeTop();
+        //deck.takeTop();
+        return true;
+    }
+    else 
+        return false;
   }
 
  /**
@@ -111,7 +122,7 @@ public class ZetTable
    */
   public void remove3Cards(int[] indices)
   {
-    ...
+    //...
   }
 
   /**
@@ -121,7 +132,7 @@ public class ZetTable
   public void compactOpenCards()
   {
     // Partitioning algorithm (proceed from both ends):
-    ...
+    //...
   }
 
   /**
@@ -132,6 +143,6 @@ public class ZetTable
    */
   public String toString()
   {
-    ...
+    //...
   }
 }

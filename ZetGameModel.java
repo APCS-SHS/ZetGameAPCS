@@ -7,7 +7,7 @@
  *  Teachers may make a limited number of copies of this file
  *  for noncommercial, face-to-face teaching purposes.
  *
- *  SET® is a registered trademark of SET Enterprises, Inc.
+ *  SET (R) is a registered trademark of SET Enterprises, Inc.
  *
  */
 
