@@ -92,7 +92,7 @@ public class Deck
         String s = "";
         for (int i = 0; i<Deck.size(); i++)
             {
-                s+=Deck.get(i) + " ";
+                s+=Deck.get(i) + " \n";
             }
         return s;
     }
