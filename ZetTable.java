@@ -83,7 +83,8 @@ public class ZetTable
    */
   public boolean enoughOpen()
   {
-    if(numOpenCards >= dfltOpenCards){
+    
+    if(cards.length>= dfltOpenCards){
     return true;
     }
     else{
