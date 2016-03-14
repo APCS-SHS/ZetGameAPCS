@@ -17,7 +17,7 @@ public class TestZetDeck
     {
         // initialise instance variables
         
-        ZetDeck deck1=new ZetDeck();
+        Deck deck1=new ZetDeck();
         int i = 0;
         while (i<=2)
 
