@@ -16,7 +16,7 @@
   - The open cards array may have gaps: if a card is missing, the corresponding element is
     set to null.
 
-  - Don't forget to shuffle the deck after it has been created.
+  - Don't forget to shuffle the deck after it has been created. (+)
 
   - Note that getOpenCard(i) must check that i is within bounds and return null
     if it isn't.
@@ -43,7 +43,7 @@ public class ZetTable
 {
   private final int dfltOpenCards = 12;//Default Open Cards
   private ZetDeck deck;
-  private ZetCard[] cards[];
+  private ZetCard cards[];
   /**
    *  Creates a new deck and opens dfltOpenCards cards.
    */
@@ -51,10 +51,11 @@ public class ZetTable
   {
     deck=new ZetDeck();//Create new ZetDeck
     deck.shuffle();
-    //cards[]={deck.takeTop(dfltOpenCards)};
-    //for i in cards[]
-    deck.takeTop(dfltOpenCards);//Open dfltOpenCards?
+    
+    for(int i=0;i<cards.length;i++){
+        cards[i]=deck.takeTop();//Open dfltOpenCards?
   }
+}
 
   /**
    *  Returns the number of cards left in the deck.
@@ -62,7 +63,7 @@ public class ZetTable
    */
   public int cardsInDeck()
   {
-    deck.getNumCards();//return Number of Remaining Cards?
+    deck.getNumCards();
   }
 
   /**
@@ -73,7 +74,7 @@ public class ZetTable
    */
   public ZetCard getOpenCard(int i)
   {
-    
+    return cards[i];
   }
 
   /**
@@ -107,9 +108,9 @@ public class ZetTable
   public boolean open3Cards()
   {
     if(cardsInDeck()>=3){
-        //deck.takeTop();
-        //deck.takeTop();
-        //deck.takeTop();
+        deck.takeTop();
+        deck.takeTop();
+        deck.takeTop();
         return true;
     }
     else 
@@ -143,7 +144,7 @@ public class ZetTable
         }
     }
   }
-
+}
   /**
    *  Returns a string representation of this "set table".
    *  @return a string that lists all the open cards (including null cards)
@@ -152,6 +153,6 @@ public class ZetTable
    */
   public String toString()
   {
-    //...
+    return cards.toString()+"\n"+cardsInDeck();
   }
 }
