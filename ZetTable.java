@@ -122,7 +122,9 @@ public class ZetTable
    */
   public void remove3Cards(int[] indices)
   {
-    //...
+    cards.remove(indices[0]);
+    cards.remove(indices[1]);
+    cards.remove(indices[2]);
   }
 
   /**
@@ -131,8 +133,15 @@ public class ZetTable
    */
   public void compactOpenCards()
   {
-    // Partitioning algorithm (proceed from both ends):
-    //...
+    for(int i=0;i<12;i++){
+        if(cards[i]==null){
+            for(j=cards.length-1;j<11;j--){
+                Card card1=getOpenCard(j);
+                if(card1!=null){
+                    cards[i]=card1;
+                }
+        }
+    }
   }
 
   /**
