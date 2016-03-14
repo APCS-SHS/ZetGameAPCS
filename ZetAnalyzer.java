@@ -24,10 +24,10 @@
 
 public class ZetAnalyzer
 {
-    int a;
-    int b;
-    int c;
-    int isTrueN = 0, isTrueS = 0, isTrueF = 0, isTrueC = 0;
+    private static int a;
+    private static int b;
+    private static int c;
+    private static int isTrueN = 0, isTrueS = 0, isTrueF = 0, isTrueC = 0;
     
     
     public static boolean isZet(ZetCard card1, ZetCard card2, ZetCard card3)
@@ -43,9 +43,9 @@ public class ZetAnalyzer
             
             
         }
-        a = card1.getShape;
-        b = card2.getShape;
-        c = card3.getShape;
+        a = card1.getShape();
+        b = card2.getShape();
+        c = card3.getShape();
         if ((a+b+c)%3 == 0) 
         {
             isTrueS = 1;
@@ -53,9 +53,9 @@ public class ZetAnalyzer
             
             
         }
-        a = card1.getFill;
-        b = card2.getFill;
-        c = card3.getFill;
+        a = card1.getFill();
+        b = card2.getFill();
+        c = card3.getFill();
         if ((a+b+c)%3 == 0) 
         {
             isTrueF = 1;
@@ -63,9 +63,9 @@ public class ZetAnalyzer
             
             
         }
-        a = card1.getColor;
-        b = card2.getColor;
-        c = card3.getColor;
+        a = card1.getColor();
+        b = card2.getColor();
+        c = card3.getColor();
         if ((a+b+c)%3 == 0) 
         {
             isTrueC = 1;
@@ -74,7 +74,7 @@ public class ZetAnalyzer
             
         }
         
-        if ((isTrueC == 1) && (isTrueF == 1) && (isTrueN == 1) && (isTrueS))
+        if ((isTrueC == 1) && (isTrueF == 1) && (isTrueN == 1) && (isTrueS==1))
         {
             return true;
         }
@@ -85,19 +85,20 @@ public class ZetAnalyzer
     }
     public static int[] findZet(ZetCard[] cards)
     {
-        int length = cards.length()-1;
+        int length = cards.length-1;
         for (int i =0; i <= length; i++)
         {
             for (int c =1; c <= length; c++)
         {
             for (int j =2; j <= length; j++)
         {
-            if (isZet(card[i], card[j], card[c] == true))
+            if (isZet(cards[i], cards[j], cards[c]) == true)
             {
-                ZetCard[] arrayZet = new int [3];
-                arrayZet[0] = card[i];
-                arrayZet[1] = card[j];
-                arrayZet[2] = card[c];
+                int[] arrayZet = {i,j,c};
+                //arrayZet[0] = card[i];
+                //arrayZet[1] = card[j];
+                //arrayZet[2] = card[c];
+                return arrayZet;
                 
                 
             }
@@ -107,6 +108,7 @@ public class ZetAnalyzer
     }
 
    }
+   return null;
   }
 }
 
