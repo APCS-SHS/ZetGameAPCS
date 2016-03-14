@@ -22,7 +22,7 @@
 
 */
 
-public class ZetAnalyzer
+public class ZetAnalyzer extends Deck
 {
     private static int a;
     private static int b;
