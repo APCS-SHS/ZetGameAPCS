@@ -13,7 +13,7 @@ public class TestZetDeck
     /**
      * Constructor for objects of class TestZetDeck
      */
-    public TestZetDeck()
+    public static void main(String [] args)
     {
         // initialise instance variables
         
