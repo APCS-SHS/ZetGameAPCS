@@ -11,10 +11,11 @@ public class ZetDeck extends Deck
 {
     public ZetDeck() 
 
-    {
-        ArrayList<ZetCard> al=new ArrayList<ZetCard>();
+    {ArrayList<ZetCard> al=new ArrayList<ZetCard>();
 
-        for (int i=0;i<=80; i++)
+        
+        
+        for (int i=0;i<=2; i++)
         {
             for (int Shape=0 ; Shape<=2; Shape++)
             {
