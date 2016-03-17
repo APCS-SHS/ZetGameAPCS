@@ -43,7 +43,8 @@ public class ZetTable
 {
   private final int dfltOpenCards = 12;//Default Open Cards
   private ZetDeck deck;
-  private ZetCard cards[];
+  private ZetCard cards[]={null,null,null,null,null,null,null,null,null,null,null,null};
+  
   /**
    *  Creates a new deck and opens dfltOpenCards cards.
    */
@@ -53,7 +54,9 @@ public class ZetTable
     deck.shuffle();
     
     for(int i=0;i<cards.length;i++){
+     
         cards[i]=deck.takeTop();//Open dfltOpenCards?
+        
   }
 }
 
@@ -63,7 +66,7 @@ public class ZetTable
    */
   public int cardsInDeck()
   {
-    deck.getNumCards();
+    return deck.getNumCards();
   }
 
   /**
@@ -85,10 +88,10 @@ public class ZetTable
   {
     
     if(cards.length>= dfltOpenCards){
-    return true;
+        return true;
     }
     else{
-    return false;
+        return false;
     }
   }
 
@@ -99,7 +102,8 @@ public class ZetTable
    */
   public int[] findZet()
   {
-    ZetAnalyzer.findZet();
+    return ZetAnalyzer.findZet(cards);
+    
   }
 
   /**
@@ -124,9 +128,9 @@ public class ZetTable
    */
   public void remove3Cards(int[] indices)
   {
-    cards.remove(indices[0]);
-    cards.remove(indices[1]);
-    cards.remove(indices[2]);
+    cards[indices[0]]=null;
+    cards[indices[1]]=null;
+    cards[indices[2]]=null;
   }
 
   /**
@@ -137,8 +141,8 @@ public class ZetTable
   {
     for(int i=0;i<12;i++){
         if(cards[i]==null){
-            for(j=cards.length-1;j<11;j--){
-                Card card1=getOpenCard(j);
+            for(int j=cards.length-1;j<11;j--){
+                ZetCard card1=getOpenCard(j);
                 if(card1!=null){
                     cards[i]=card1;
                 }
@@ -154,6 +158,6 @@ public class ZetTable
    */
   public String toString()
   {
-    return cards.toString()+"\n"+cardsInDeck();
+      return cards.toString()+"\n"+cardsInDeck();
   }
 }

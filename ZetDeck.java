@@ -9,12 +9,11 @@ import java.util.*;
 
 public class ZetDeck extends Deck
 {
+    private ArrayList<ZetCard> Zet=new ArrayList<ZetCard>();
     public ZetDeck() 
+    
+    {
 
-    {ArrayList<ZetCard> al=new ArrayList<ZetCard>();
-
-        
-        
         for (int i=0;i<=2; i++)
         {
             for (int Shape=0 ; Shape<=2; Shape++)
@@ -24,12 +23,18 @@ public class ZetDeck extends Deck
                     for (int Color=0; Color<=2; Color++)
                     {
                         ZetCard zetCard=new ZetCard(i,Shape,Fill,Color);
-                        al.add(zetCard);
+                        Zet.add(zetCard);
                     }
                 }
             }
         }
 
+    }
+    public ZetCard takeTop(){
+        if (!isEmpty())
+            return (Zet.remove(Zet.size()-1));
+        else
+            return null;
     }
 }
 
