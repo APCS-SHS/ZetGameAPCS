@@ -13,28 +13,23 @@ public class ZetDeck extends Deck
     public ZetDeck() 
     
     {
-
-        for (int i=0;i<=2; i++)
+        super(81);
+        for (int i=1;i<=3; i++)
         {
-            for (int Shape=0 ; Shape<=2; Shape++)
+            for (int Shape=1 ; Shape<=3; Shape++)
             {
-                for (int Fill=0; Fill<=2; Fill++)
+                for (int Fill=1; Fill<=3; Fill++)
                 {
-                    for (int Color=0; Color<=2; Color++)
+                    for (int Color=1; Color<=3; Color++)
                     {
                         ZetCard zetCard=new ZetCard(i,Shape,Fill,Color);
-                        Zet.add(zetCard);
+                        this.add(zetCard);
                     }
                 }
             }
         }
-
+        
     }
-    public ZetCard takeTop(){
-        if (!isEmpty())
-            return (Zet.remove(Zet.size()-1));
-        else
-            return null;
-    }
+    
 }
 

@@ -7,15 +7,15 @@
 public class ZetCard extends Card
 {
     private int number, shape, fill, color;
-    private static int iD = 0;
+    
     
     public ZetCard(int number, int shape, int fill, int color){
-        super(iD);
+        super((1000*(number)) + (100*(shape))+10*(fill)+(color));
         this.number = number;
         this.shape = shape;
         this.fill = fill;
         this.color = color;
-        iD++;
+        
     }
     
     public int getNumber(){

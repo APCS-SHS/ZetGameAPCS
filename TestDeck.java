@@ -15,9 +15,9 @@ public class TestDeck
         Card red2 = new Card(2);
         Card blue3 = new Card(3);
         
-        deck1.add(green1);
-        deck1.add(red2);
-        deck1.add(blue3);
+        //deck1.add(green1);
+        //deck1.add(red2);
+        //deck1.add(blue3);
         
         
         System.out.println(deck1);

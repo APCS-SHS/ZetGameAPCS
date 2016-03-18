@@ -43,7 +43,7 @@ public class ZetTable
 {
   private final int dfltOpenCards = 12;//Default Open Cards
   private ZetDeck deck;
-  private ZetCard cards[]={null,null,null,null,null,null,null,null,null,null,null,null};
+  private ZetCard cards[]=new ZetCard[21];
   
   /**
    *  Creates a new deck and opens dfltOpenCards cards.
@@ -53,9 +53,9 @@ public class ZetTable
     deck=new ZetDeck();//Create new ZetDeck
     deck.shuffle();
     
-    for(int i=0;i<cards.length;i++){
+    for(int i=0;i<dfltOpenCards;i++){
      
-        cards[i]=deck.takeTop();//Open dfltOpenCards?
+        cards[i]=deck.takeTop();
         
   }
 }
@@ -77,7 +77,13 @@ public class ZetTable
    */
   public ZetCard getOpenCard(int i)
   {
-    return cards[i];
+      if(i>cards.length-1){
+          return null;
+        }
+      if (cards[i]!=null)
+        return cards[i];
+      else
+        return null;
   }
 
   /**
@@ -86,8 +92,13 @@ public class ZetTable
    */
   public boolean enoughOpen()
   {
-    
-    if(cards.length>= dfltOpenCards){
+    int ctr=0;
+    for(int i=0; i<cards.length; i++){
+        if(cards[i]!=null){
+            ctr++;
+        }
+    }
+    if(ctr>= dfltOpenCards){
         return true;
     }
     else{
@@ -102,6 +113,7 @@ public class ZetTable
    */
   public int[] findZet()
   {
+    
     return ZetAnalyzer.findZet(cards);
     
   }
@@ -112,10 +124,17 @@ public class ZetTable
    */
   public boolean open3Cards()
   {
+    int ctr=0;
     if(cardsInDeck()>=3){
-        deck.takeTop();
-        deck.takeTop();
-        deck.takeTop();
+        for(int i=0;i<cards.length;i++){
+            if(ctr<3 && cards[i]==null){
+                cards[i]=deck.takeTop();
+                ctr++;
+            }
+        }
+        
+        
+        
         return true;
     }
     else 
@@ -139,7 +158,7 @@ public class ZetTable
    */
   public void compactOpenCards()
   {
-    for(int i=0;i<12;i++){
+    for(int i=0;i<cards.length-1;i++){
         if(cards[i]==null){
             for(int j=cards.length-1;j<11;j--){
                 ZetCard card1=getOpenCard(j);
