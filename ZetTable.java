@@ -160,7 +160,7 @@ public class ZetTable
   {
     for(int i=0;i<cards.length-1;i++){
         if(cards[i]==null){
-            for(int j=cards.length-1;j<11;j--){
+            for(int j=cards.length-1;j<i;j--){
                 ZetCard card1=getOpenCard(j);
                 if(card1!=null){
                     cards[i]=card1;
