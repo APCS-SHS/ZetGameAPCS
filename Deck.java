@@ -20,7 +20,11 @@ import java.util.*;
 
 public class Deck
 {
+<<<<<<< HEAD
     private ArrayList<ZetCard> Deck;
+=======
+    ArrayList<ZetCard> Deck;
+>>>>>>> f8b309979a27dcf49f5e345537e50d481d515a02
     //----------------------------------------------------
     // Constructs an empty deck of cards
     //----------------------------------------------------
