@@ -22,7 +22,7 @@ public class Deck
 {
 
     private ArrayList<ZetCard> Deck;
-=======
+
     ArrayList<ZetCard> Deck;
 
     //----------------------------------------------------
