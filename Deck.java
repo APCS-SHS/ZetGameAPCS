@@ -20,20 +20,20 @@ import java.util.*;
 
 public class Deck
 {
-    ArrayList<Card> Deck;
+    ArrayList<ZetCard> Deck;
     //----------------------------------------------------
     // Constructs an empty deck of cards
     //----------------------------------------------------
     public Deck()
     {
-        Deck = new ArrayList<Card>();
+        Deck = new ArrayList<ZetCard>();
     }
     //----------------------------------------------------
     // Constructs an empty deck of cards of given capacity
     //----------------------------------------------------
     public Deck(int capacity)
     {
-        Deck = new ArrayList<Card>(capacity);
+        Deck = new ArrayList<ZetCard>(capacity);
     }
     //----------------------------------------------------
     // Returns the number of cards in this deck.
@@ -45,7 +45,7 @@ public class Deck
     //----------------------------------------------------
     // Adds a given card at the top of this deck.
     //----------------------------------------------------
-    public void add(Card card)
+    public void add(ZetCard card)
     {
         Deck.add(card);
     }
@@ -62,7 +62,7 @@ public class Deck
     //----------------------------------------------------
     // Removes and returns the top card from this deck.
     //----------------------------------------------------
-    public Card takeTop()
+    public ZetCard takeTop()
     {
         //Note: The last element of the array is considered to be the top of the deck
         if (!isEmpty())

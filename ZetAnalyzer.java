@@ -22,16 +22,17 @@
 
 */
 
-public class ZetAnalyzer extends Deck
+public class ZetAnalyzer extends ZetDeck
 {
-    private static int a;
-    private static int b;
-    private static int c;
-    private static int isTrueN = 0, isTrueS = 0, isTrueF = 0, isTrueC = 0;
-    
+   
     
     public static boolean isZet(ZetCard card1, ZetCard card2, ZetCard card3)
     {
+        if(card1==null||card2==null||card3==null){
+            return false;//Immediate Fail if Null
+        }
+        int a,b,c,isTrueN,isTrueS,isTrueF,isTrueC;
+        
         a = card1.getNumber();
         b = card2.getNumber();
         c = card3.getNumber();
@@ -43,6 +44,8 @@ public class ZetAnalyzer extends Deck
             
             
         }
+        else
+            isTrueN=0;
         a = card1.getShape();
         b = card2.getShape();
         c = card3.getShape();
@@ -53,6 +56,8 @@ public class ZetAnalyzer extends Deck
             
             
         }
+        else
+            isTrueS=0;
         a = card1.getFill();
         b = card2.getFill();
         c = card3.getFill();
@@ -63,6 +68,8 @@ public class ZetAnalyzer extends Deck
             
             
         }
+        else
+            isTrueF=0;
         a = card1.getColor();
         b = card2.getColor();
         c = card3.getColor();
@@ -73,8 +80,10 @@ public class ZetAnalyzer extends Deck
             
             
         }
+        else
+            isTrueC=0;
         
-        if ((isTrueC == 1) && (isTrueF == 1) && (isTrueN == 1) && (isTrueS==1))
+        if ((isTrueC == 1) && (isTrueF == 1) && (isTrueN == 1) && (isTrueS==1) &&(card1!=card2 && card1!=card3 && card2!=card3))
         {
             return true;
         }
@@ -85,12 +94,12 @@ public class ZetAnalyzer extends Deck
     }
     public static int[] findZet(ZetCard[] cards)
     {
-        int length = cards.length-1;
-        for (int i =0; i <= length; i++)
+        int length = cards.length;
+        for (int i =0; i < length; i++)
         {
-            for (int c =1; c <= length; c++)
+            for (int c =0; c < length; c++)
         {
-            for (int j =2; j <= length; j++)
+            for (int j =0; j < length; j++)
         {
             if (isZet(cards[i], cards[j], cards[c]) == true)
             {

@@ -18,6 +18,7 @@ public class TestZetDeck
         // initialise instance variables
         
         Deck deck1=new ZetDeck();
+        System.out.println(deck1.getNumCards());
         int i = 0;
         while (i<=2)
 
@@ -26,6 +27,7 @@ public class TestZetDeck
             
             i++;
         }
+        System.out.println(deck1);
         
     }
 
