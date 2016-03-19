@@ -84,13 +84,14 @@ public class ZetGame extends JFrame
     contentPane.add(tablePanel, BorderLayout.CENTER);
     contentPane.add(controlPanel, BorderLayout.NORTH);
     contentPane.add(buttonPanel, BorderLayout.SOUTH);
+    
   }
 
   protected void newGame()
   {
     guest.stop();
     computer.stop();
-
+    
     gameModel.newGame();
 
     guest.setScore(0);
@@ -101,6 +102,7 @@ public class ZetGame extends JFrame
     pauseButton.setEnabled(false);
     resumeButton.setEnabled(false);
     newGameButton.setEnabled(false);
+    startButton.requestFocus();
   }
 
   protected void startGame()
@@ -120,6 +122,7 @@ public class ZetGame extends JFrame
     pauseButton.setEnabled(false);
     resumeButton.setEnabled(false);
     newGameButton.setEnabled(true);
+    newGameButton.requestFocus();
     computer.stop();
     guest.stop();
     JOptionPane.showMessageDialog(this, "Game over\n", "Game over",
@@ -130,6 +133,9 @@ public class ZetGame extends JFrame
   {
     paused = true;
     pauseButton.setEnabled(false);
+    resumeButton.setEnabled(true);
+    pausePlayers();
+    resumeButton.requestFocus();
   }
 
   protected void resumeGame()
@@ -137,12 +143,14 @@ public class ZetGame extends JFrame
     paused = false;
     pauseButton.setEnabled(true);
     resumeButton.setEnabled(false);
-    playerDone(pausedPlayer);
+    startPlayers();
+    
   }
 
   protected void startPlayers()
   {
     // Make sure a Set is on the table:
+    controlPanel.requestFocus();
     while (gameModel.findZet() == null)
       if (!gameModel.open3Cards())
       {
@@ -153,7 +161,10 @@ public class ZetGame extends JFrame
     computer.start();
     guest.start();
   }
-
+  protected void pausePlayers(){
+    computer.stop();
+    guest.stop();
+  }
   //***************** called by players **************************
 
   public void setActivePlayer(ZetPlayer p)
@@ -166,13 +177,7 @@ public class ZetGame extends JFrame
 
   public void playerDone(ZetPlayer p)
   {
-    if (paused)
-    {
-      pausedPlayer = p;
-      resumeButton.setEnabled(true);
-      return;
-    }
-
+    
     int score = p.getScore();
 
     if (gameModel.removeZet())
@@ -182,7 +187,7 @@ public class ZetGame extends JFrame
     p.setScore(score);
 
     startPlayers();
-    controlPanel.requestFocus();
+    
   }
 
   private class ControlButtonListener implements ActionListener
