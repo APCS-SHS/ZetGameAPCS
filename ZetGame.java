@@ -25,6 +25,7 @@ public class ZetGame extends JFrame
   private final JButton startButton, pauseButton, resumeButton, newGameButton;
   private boolean paused;
   private ZetPlayer pausedPlayer;
+  private boolean hasStarted;
 
   public ZetGame()
   {
@@ -79,14 +80,16 @@ public class ZetGame extends JFrame
     b2.add(newGameButton);
     b2.add(Box.createHorizontalStrut(5));
     buttonPanel.add(b2);
-
+    hasStarted=false;
     Container contentPane = getContentPane();
     contentPane.add(tablePanel, BorderLayout.CENTER);
     contentPane.add(controlPanel, BorderLayout.NORTH);
     contentPane.add(buttonPanel, BorderLayout.SOUTH);
     
   }
-
+  public boolean hasStarted(){
+      return hasStarted;
+    }
   protected void newGame()
   {
     guest.stop();
@@ -117,6 +120,7 @@ public class ZetGame extends JFrame
 
   protected void stopGame()
   {
+    hasStarted=false;
     paused = false;
     startButton.setEnabled(false);
     pauseButton.setEnabled(false);
@@ -149,6 +153,7 @@ public class ZetGame extends JFrame
 
   protected void startPlayers()
   {
+    hasStarted=true;
     // Make sure a Set is on the table:
     controlPanel.requestFocus();
     while (gameModel.findZet() == null)

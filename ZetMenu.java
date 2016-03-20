@@ -72,12 +72,14 @@ public class ZetMenu extends JMenuBar
       System.exit(0);
     else if (src == howtoplay)
     {
-      game.pauseGame();
+      if(game.hasStarted()==true)
+        game.pauseGame();
       showHelp();
     }
     else if (src == about)
     {
-      game.pauseGame();
+      if(game.hasStarted()==true)
+        game.pauseGame();
       showAbout();
     }
   }
