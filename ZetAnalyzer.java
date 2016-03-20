@@ -29,7 +29,7 @@ public class ZetAnalyzer extends ZetDeck
     public static boolean isZet(ZetCard card1, ZetCard card2, ZetCard card3)
     {
         if(card1==null||card2==null||card3==null){
-            return false;//Immediate Fail if Null
+            return false;//Immediately Fail if Null
         }
         int a,b,c,isTrueN,isTrueS,isTrueF,isTrueC;
         
